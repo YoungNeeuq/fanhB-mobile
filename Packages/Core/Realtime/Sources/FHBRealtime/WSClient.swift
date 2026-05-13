@@ -1,6 +1,8 @@
 import Foundation
 import FHBFoundation
 
+// MARK: - Types
+
 public enum WSConnectionState: Sendable, Equatable {
     case disconnected
     case connecting
@@ -8,24 +10,69 @@ public enum WSConnectionState: Sendable, Equatable {
     case reconnecting(attempt: Int)
 }
 
-public actor WSClient {
-    private var webSocketTask: URLSessionWebSocketTask?
-    private let session: URLSession
-    private let logger = FHBLogger(category: "WSClient")
-    private var connectionState: WSConnectionState = .disconnected
-    private var reconnectAttempt = 0
-    private let maxReconnectAttempts = 10
-    private var messageHandlers: [(WSMessage) -> Void] = []
+public struct WSMessage: Sendable {
+    public let type: String
+    public let payload: [String: String]
 
-    public init() {
-        self.session = URLSession(configuration: .default)
+    public init(type: String, payload: [String: String] = [:]) {
+        self.type = type
+        self.payload = payload
     }
 
-    public var state: WSConnectionState { connectionState }
+    var encoded: String {
+        var dict: [String: Any] = ["type": type]
+        if !payload.isEmpty { dict["payload"] = payload }
+        let data = (try? JSONSerialization.data(withJSONObject: dict)) ?? Data()
+        return String(decoding: data, as: UTF8.self)
+    }
+
+    init?(encoded: String) {
+        guard
+            let data = encoded.data(using: .utf8),
+            let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+            let type = dict["type"] as? String
+        else { return nil }
+        self.type = type
+        self.payload = (dict["payload"] as? [String: String]) ?? [:]
+    }
+}
+
+public enum WSError: Error, Sendable {
+    case notConnected
+}
+
+// MARK: - WSClient
+
+public actor WSClient: WSClientProtocol {
+    public let messages: AsyncStream<WSMessage>
+    public let connectionStates: AsyncStream<WSConnectionState>
+
+    private let messageContinuation: AsyncStream<WSMessage>.Continuation
+    private let stateContinuation: AsyncStream<WSConnectionState>.Continuation
+    private let session: URLSession
+    private let logger = FHBLogger(category: "WSClient")
+    private let maxReconnectAttempts = 10
+
+    private var webSocketTask: URLSessionWebSocketTask?
+    private var reconnectAttempt = 0
+    private var _state: WSConnectionState = .disconnected
+
+    public var state: WSConnectionState { _state }
+
+    public init() {
+        let (msgStream, msgCont) = AsyncStream<WSMessage>.makeStream()
+        let (stateStream, stateCont) = AsyncStream<WSConnectionState>.makeStream()
+        messages = msgStream
+        connectionStates = stateStream
+        messageContinuation = msgCont
+        stateContinuation = stateCont
+        session = URLSession(configuration: .default)
+    }
+
+    // MARK: - Public interface
 
     public func connect(to url: URL) async {
-        guard connectionState == .disconnected else { return }
-        connectionState = .connecting
+        guard _state == .disconnected else { return }
         reconnectAttempt = 0
         await performConnect(to: url)
     }
@@ -33,27 +80,31 @@ public actor WSClient {
     public func disconnect() {
         webSocketTask?.cancel(with: .normalClosure, reason: nil)
         webSocketTask = nil
-        connectionState = .disconnected
+        transition(to: .disconnected)
         reconnectAttempt = 0
     }
 
     public func send(_ message: WSMessage) async throws {
-        guard case .connected = connectionState else { throw WSError.notConnected }
+        guard case .connected = _state else { throw WSError.notConnected }
         try await webSocketTask?.send(.string(message.encoded))
     }
 
-    public func onMessage(_ handler: @escaping (WSMessage) -> Void) {
-        messageHandlers.append(handler)
-    }
+    // MARK: - Private
 
     private func performConnect(to url: URL) async {
+        transition(to: .connecting)
         webSocketTask = session.webSocketTask(with: url)
         webSocketTask?.resume()
-        connectionState = .connected
+        transition(to: .connected)
         reconnectAttempt = 0
         logger.info("WebSocket connected to \(url.absoluteString)")
         listenForMessages()
         startHeartbeat()
+    }
+
+    private func transition(to newState: WSConnectionState) {
+        _state = newState
+        stateContinuation.yield(newState)
     }
 
     private func listenForMessages() {
@@ -64,13 +115,11 @@ public actor WSClient {
                     let result = try await task.receive()
                     switch result {
                     case .string(let text):
-                        if let message = WSMessage(encoded: text) {
-                            messageHandlers.forEach { $0(message) }
-                        }
+                        if let msg = WSMessage(encoded: text) { messageContinuation.yield(msg) }
                     case .data(let data):
                         if let text = String(data: data, encoding: .utf8),
-                           let message = WSMessage(encoded: text) {
-                            messageHandlers.forEach { $0(message) }
+                           let msg = WSMessage(encoded: text) {
+                            messageContinuation.yield(msg)
                         }
                     @unknown default:
                         break
@@ -85,56 +134,26 @@ public actor WSClient {
 
     private func startHeartbeat() {
         Task {
-            while case .connected = connectionState {
+            while case .connected = _state {
                 try? await Task.sleep(for: .seconds(25))
-                webSocketTask?.sendPing { [weak self] _ in _ = self }
+                webSocketTask?.sendPing { _ in }
             }
         }
     }
 
     private func handleDisconnect() async {
         guard reconnectAttempt < maxReconnectAttempts else {
-            connectionState = .disconnected
+            transition(to: .disconnected)
             return
         }
         reconnectAttempt += 1
-        connectionState = .reconnecting(attempt: reconnectAttempt)
+        transition(to: .reconnecting(attempt: reconnectAttempt))
         let delay = min(0.25 * pow(2.0, Double(reconnectAttempt - 1)), 8.0)
         let jitter = Double.random(in: 0...0.5)
-        logger.info("Reconnecting in \(delay + jitter)s (attempt \(reconnectAttempt))")
+        logger.info("Reconnecting in \(String(format: "%.2f", delay + jitter))s (attempt \(reconnectAttempt))")
         try? await Task.sleep(for: .seconds(delay + jitter))
         if let url = webSocketTask?.originalRequest?.url {
             await performConnect(to: url)
         }
     }
-}
-
-public struct WSMessage: Sendable {
-    public let type: String
-    public let payload: [String: any Sendable]
-
-    public init(type: String, payload: [String: any Sendable] = [:]) {
-        self.type = type
-        self.payload = payload
-    }
-
-    var encoded: String {
-        let dict: [String: Any] = ["type": type]
-        let data = (try? JSONSerialization.data(withJSONObject: dict)) ?? Data()
-        return String(decoding: data, as: UTF8.self)
-    }
-
-    init?(encoded: String) {
-        guard
-            let data = encoded.data(using: .utf8),
-            let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-            let type = dict["type"] as? String
-        else { return nil }
-        self.type = type
-        self.payload = [:]
-    }
-}
-
-public enum WSError: Error, Sendable {
-    case notConnected
 }

@@ -35,9 +35,32 @@ public struct Endpoint: Sendable {
 }
 
 public enum HTTPMethod: String, Sendable {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case patch = "PATCH"
+    case get    = "GET"
+    case post   = "POST"
+    case put    = "PUT"
+    case patch  = "PATCH"
     case delete = "DELETE"
+}
+
+// MARK: - Convenience factories
+
+public extension Endpoint {
+    /// JSON-encodes an Encodable body and sets Content-Type automatically.
+    static func json<B: Encodable & Sendable>(
+        path: String,
+        method: HTTPMethod,
+        body: B,
+        headers: [String: String] = [:],
+        queryItems: [URLQueryItem] = []
+    ) throws -> Endpoint {
+        Endpoint(
+            path: path,
+            method: method,
+            headers: headers,
+            body: try JSONEncoder().encode(body),
+            queryItems: queryItems
+        )
+    }
+
+    static let health = Endpoint(path: "/_ops/health")
 }

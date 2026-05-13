@@ -1,0 +1,18 @@
+# SwiftFormat configuration — matches SwiftLint expectations
+--swiftversion 5.10
+--indent 4
+--tabwidth 4
+--maxwidth 130
+--wraparguments before-first
+--wrapcollections before-first
+--importgrouping testable-last
+--trimwhitespace always
+--stripunusedargs closure-only
+--commas always
+--semicolons never
+--linebreaks lf
+
+# Rules to disable (SwiftUI DSL and actor patterns need these)
+--disable redundantSelf
+--disable wrapConditionalBodies
+--disable extensionAccessControl
