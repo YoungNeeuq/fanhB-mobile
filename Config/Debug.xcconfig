@@ -1,0 +1,7 @@
+// Debug build settings
+// Override values by creating Config/Secrets.xcconfig (gitignored — see .template)
+
+SENTRY_DSN =
+POSTHOG_API_KEY =
+
+#include? "Secrets.xcconfig"

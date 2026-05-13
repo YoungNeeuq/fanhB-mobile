@@ -1,0 +1,75 @@
+default_platform :ios
+
+platform :ios do
+  # ── Shared helpers ──────────────────────────────────────────────────────────
+
+  def asc_api_key
+    app_store_connect_api_key(
+      key_id:              ENV.fetch("ASC_API_KEY_ID"),
+      issuer_id:           ENV.fetch("ASC_API_KEY_ISSUER_ID"),
+      key_content:         ENV.fetch("ASC_API_KEY_CONTENT"),
+      is_key_content_base64: true,
+      in_house:            false
+    )
+  end
+
+  def write_secrets_xcconfig
+    File.write(
+      "Config/Secrets.xcconfig",
+      "SENTRY_DSN = #{ENV.fetch('SENTRY_DSN', '')}\n" \
+      "POSTHOG_API_KEY = #{ENV.fetch('POSTHOG_API_KEY', '')}\n"
+    )
+  end
+
+  # ── bootstrap ───────────────────────────────────────────────────────────────
+  # Fetches dev certs + profiles. Run once per new machine:
+  #   bundle exec fastlane bootstrap
+  desc "Sync development certs via Match"
+  lane :bootstrap do
+    match(type: "development", readonly: true)
+  end
+
+  # ── test ────────────────────────────────────────────────────────────────────
+  desc "Run unit tests"
+  lane :test do
+    run_tests(
+      scheme:      "FanhB",
+      device:      "iPhone 15",
+      clean:       true,
+      output_files: "fastlane/test_output/report.junit"
+    )
+  end
+
+  # ── adhoc ───────────────────────────────────────────────────────────────────
+  desc "Build ad-hoc IPA (for internal distribution)"
+  lane :adhoc do
+    write_secrets_xcconfig
+    match(type: "adhoc", readonly: true, api_key: asc_api_key)
+    gym(
+      scheme:          "FanhB",
+      configuration:   "Release",
+      export_method:   "ad-hoc",
+      output_directory: "build",
+      output_name:     "FanhB-adhoc.ipa"
+    )
+  end
+
+  # ── release ─────────────────────────────────────────────────────────────────
+  desc "Build and upload to TestFlight"
+  lane :release do
+    write_secrets_xcconfig
+    api_key = asc_api_key
+    match(type: "appstore", readonly: true, api_key: api_key)
+    gym(
+      scheme:          "FanhB",
+      configuration:   "Release",
+      export_method:   "app-store",
+      output_directory: "build",
+      output_name:     "FanhB.ipa"
+    )
+    upload_to_testflight(
+      api_key:                          api_key,
+      skip_waiting_for_build_processing: true
+    )
+  end
+end

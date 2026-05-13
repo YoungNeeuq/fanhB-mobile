@@ -15,14 +15,15 @@ settings:
     DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
 
 configFiles:
-  Debug: ""
-  Release: ""
+  Debug: Config/Debug.xcconfig
+  Release: Config/Release.xcconfig
 
 configs:
   Debug: debug
   Release: release
 
 packages:
+  # ── Local packages ──────────────────────────────────────────────────────────
   FHBFoundation:
     path: Packages/Core/Foundation
   FHBDesignSystem:
@@ -56,6 +57,27 @@ packages:
   DomainSubscription:
     path: Packages/Domain/DomainSubscription
 
+  # ── Remote packages ─────────────────────────────────────────────────────────
+  # MO-P0-020: Sentry crash reporting + performance
+  Sentry:
+    url: https://github.com/getsentry/sentry-cocoa
+    from: "8.0.0"
+
+  # MO-P0-021: PostHog product analytics
+  PostHog:
+    url: https://github.com/PostHog/posthog-ios
+    from: "3.0.0"
+
+  # MO-P0-022: Firebase Auth
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: "10.0.0"
+
+  # MO-P0-023: Factory dependency injection
+  Factory:
+    url: https://github.com/hmlongco/Factory
+    from: "2.3.0"
+
 targets:
   FanhB:
     type: application
@@ -87,6 +109,9 @@ targets:
         UIBackgroundModes:
           - remote-notification
           - fetch
+        # Build-time secrets injected via Config/Secrets.xcconfig
+        SentryDSN: "$(SENTRY_DSN)"
+        PostHogApiKey: "$(POSTHOG_API_KEY)"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.fanhb.app
@@ -128,6 +153,17 @@ targets:
         product: DomainGamification
       - package: DomainSubscription
         product: DomainSubscription
+      # Remote SDKs
+      - package: Sentry
+        product: Sentry
+      - package: PostHog
+        product: PostHog
+      - package: Firebase
+        product: FirebaseAuth
+      - package: Firebase
+        product: FirebaseCore
+      - package: Factory
+        product: Factory
 
   FanhBWidget:
     type: app-extension

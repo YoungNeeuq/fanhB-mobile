@@ -52,6 +52,10 @@ Icon?
 *.cer
 *.mobileprovision
 
+# Local build secrets (copy from *.template files)
+Config/Secrets.xcconfig
+App/Resources/GoogleService-Info.plist
+
 # Build output
 build/
 archives/

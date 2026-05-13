@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── lint ──────────────────────────────────────────────────────────────────
+  lint:
+    name: SwiftLint
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: Lint
+        # warn-only until .swiftlint.yml is configured in MO-P0-025
+        run: swiftlint lint --reporter github-actions-logging || true
+
+  # ── build + test ──────────────────────────────────────────────────────────
+  build-test:
+    name: Build & Test
+    runs-on: macos-14
+    needs: lint
+    env:
+      XCODE_SCHEME: FanhB
+      SIMULATOR:    "platform=iOS Simulator,name=iPhone 15,OS=latest"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Install xcodegen
+        run: brew install xcodegen
+
+      - name: Write Secrets.xcconfig
+        env:
+          SENTRY_DSN:      ${{ secrets.SENTRY_DSN }}
+          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
+        run: |
+          printf "SENTRY_DSN = %s\nPOSTHOG_API_KEY = %s\n" \
+            "${SENTRY_DSN}" "${POSTHOG_API_KEY}" \
+            > Config/Secrets.xcconfig
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Resolve packages
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -scheme "$XCODE_SCHEME" \
+            -clonedSourcePackagesDirPath .spm-cache
+
+      - name: Build
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -scheme "$XCODE_SCHEME" \
+            -destination "$SIMULATOR" \
+            -clonedSourcePackagesDirPath .spm-cache \
+            CODE_SIGNING_ALLOWED=NO \
+            | xcpretty
+
+      - name: Test
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -scheme "$XCODE_SCHEME" \
+            -destination "$SIMULATOR" \
+            -clonedSourcePackagesDirPath .spm-cache \
+            CODE_SIGNING_ALLOWED=NO \
+            -resultBundlePath TestResults.xcresult \
+            | xcpretty
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults.xcresult
