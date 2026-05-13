@@ -4,14 +4,14 @@
 
 ## Onboarding (S-01, S-02, S-09)
 
-- [ ] **MO-P1-001** — Splash view with animated logo (Lottie or SwiftUI)
-- [ ] **MO-P1-002** — Deep-link router (URL → coordinator)
-- [ ] **MO-P1-003** — Onboarding carousel layout
-- [ ] **MO-P1-004** — Carousel content (3 slides) + skip CTA
-- [ ] **MO-P1-005** — Drawing tutorial UI shell (3 steps)
-- [ ] **MO-P1-006** — Tutorial step 1: pen + clear
-- [ ] **MO-P1-007** — Tutorial step 2: color picker
-- [ ] **MO-P1-008** — Tutorial step 3: send a nudge
+- [x] **MO-P1-001** — Splash view with animated logo (Lottie or SwiftUI)
+- [x] **MO-P1-002** — Deep-link router (URL → coordinator)
+- [x] **MO-P1-003** — Onboarding carousel layout
+- [x] **MO-P1-004** — Carousel content (3 slides) + skip CTA
+- [x] **MO-P1-005** — Drawing tutorial UI shell (3 steps)
+- [x] **MO-P1-006** — Tutorial step 1: pen + clear
+- [x] **MO-P1-007** — Tutorial step 2: color picker
+- [x] **MO-P1-008** — Tutorial step 3: send a nudge
 
 ## Auth (S-03, S-04) 🚨
 
