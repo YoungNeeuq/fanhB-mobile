@@ -1,0 +1,11 @@
+app_identifier([
+  "com.fanhb.app",
+  "com.fanhb.app.widget",
+  "com.fanhb.app.notification-service"
+])
+
+# Set via ASC_APPLE_ID env var or fill in:
+# apple_id "your@apple.id"
+
+itc_team_id  ENV["ITC_TEAM_ID"]   # App Store Connect team
+team_id      ENV["TEAM_ID"]        # Apple Developer team

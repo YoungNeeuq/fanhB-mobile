@@ -1,0 +1,9 @@
+git_url        ENV["MATCH_GIT_URL"]   # SSH URL of your private certs repo
+storage_mode   "git"
+type           "development"           # default; overridden per lane
+
+app_identifier [
+  "com.fanhb.app",
+  "com.fanhb.app.widget",
+  "com.fanhb.app.notification-service"
+]

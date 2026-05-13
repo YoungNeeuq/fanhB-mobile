@@ -1,0 +1,7 @@
+// Release build settings
+// CI injects values by writing Config/Secrets.xcconfig from GitHub secrets
+
+SENTRY_DSN =
+POSTHOG_API_KEY =
+
+#include? "Secrets.xcconfig"

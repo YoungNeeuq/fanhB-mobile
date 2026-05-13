@@ -14,17 +14,19 @@ let package = Package(
         .package(path: "../AppGroupStore"),
         .package(path: "../Push"),
         .package(path: "../Analytics"),
+        .package(url: "https://github.com/hmlongco/Factory", from: "2.3.0"),
     ],
     targets: [
         .target(
             name: "FHBDependencyContainer",
             dependencies: [
-                .product(name: "FHBNetworking", package: "Networking"),
-                .product(name: "FHBRealtime", package: "Realtime"),
-                .product(name: "FHBPersistence", package: "Persistence"),
+                .product(name: "FHBNetworking",    package: "Networking"),
+                .product(name: "FHBRealtime",      package: "Realtime"),
+                .product(name: "FHBPersistence",   package: "Persistence"),
                 .product(name: "FHBAppGroupStore", package: "AppGroupStore"),
-                .product(name: "FHBPush", package: "Push"),
-                .product(name: "FHBAnalytics", package: "Analytics"),
+                .product(name: "FHBPush",          package: "Push"),
+                .product(name: "FHBAnalytics",     package: "Analytics"),
+                .product(name: "Factory",          package: "Factory"),
             ]
         ),
     ]

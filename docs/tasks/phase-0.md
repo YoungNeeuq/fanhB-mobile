@@ -25,18 +25,18 @@
 
 ## Signing & CI
 
-- [ ] **MO-P0-016** — Fastlane Match setup for dev + adhoc + AppStore 🚨
-- [ ] **MO-P0-017** — GitHub Actions: lint + build job (xcodebuild)
-- [ ] **MO-P0-018** — GitHub Actions: unit test job
-- [ ] **MO-P0-019** — GitHub Actions: TestFlight upload on main merge
+- [x] **MO-P0-016** — Fastlane Match setup for dev + adhoc + AppStore 🚨 ✅ done 2026-05-13
+- [x] **MO-P0-017** — GitHub Actions: lint + build job (xcodebuild) ✅ done 2026-05-13
+- [x] **MO-P0-018** — GitHub Actions: unit test job ✅ done 2026-05-13
+- [x] **MO-P0-019** — GitHub Actions: TestFlight upload on main merge ✅ done 2026-05-13
 
 ## Third-Party SDK Integration
 
-- [ ] **MO-P0-020** — Add Sentry SDK with build-time DSN
-- [ ] **MO-P0-021** — Add PostHog SDK + event-sink adapter
-- [ ] **MO-P0-022** — Add Firebase Auth SDK
-- [ ] **MO-P0-023** — Add Factory DI package
-- [ ] **MO-P0-024** — Add ViewInspector for SwiftUI tests
+- [x] **MO-P0-020** — Add Sentry SDK with build-time DSN ✅ done 2026-05-13
+- [x] **MO-P0-021** — Add PostHog SDK + event-sink adapter ✅ done 2026-05-13
+- [x] **MO-P0-022** — Add Firebase Auth SDK ✅ done 2026-05-13
+- [x] **MO-P0-023** — Add Factory DI package ✅ done 2026-05-13
+- [x] **MO-P0-024** — Add ViewInspector for SwiftUI tests ✅ done 2026-05-13
 
 ## Tooling
 
