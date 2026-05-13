@@ -1,0 +1,189 @@
+name: FanhB
+options:
+  bundleIdPrefix: com.fanhb
+  deploymentTarget:
+    iOS: "16.0"
+  defaultConfig: Debug
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    ENABLE_BITCODE: "NO"
+    DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+
+configFiles:
+  Debug: ""
+  Release: ""
+
+configs:
+  Debug: debug
+  Release: release
+
+packages:
+  FHBFoundation:
+    path: Packages/Core/Foundation
+  FHBDesignSystem:
+    path: Packages/Core/DesignSystem
+  FHBNetworking:
+    path: Packages/Core/Networking
+  FHBRealtime:
+    path: Packages/Core/Realtime
+  FHBPersistence:
+    path: Packages/Core/Persistence
+  FHBAppGroupStore:
+    path: Packages/Core/AppGroupStore
+  FHBPush:
+    path: Packages/Core/Push
+  FHBAnalytics:
+    path: Packages/Core/Analytics
+  FHBDependencyContainer:
+    path: Packages/Core/DependencyContainer
+  DomainAuth:
+    path: Packages/Domain/DomainAuth
+  DomainCouple:
+    path: Packages/Domain/DomainCouple
+  DomainCanvas:
+    path: Packages/Domain/DomainCanvas
+  DomainNudge:
+    path: Packages/Domain/DomainNudge
+  DomainMemory:
+    path: Packages/Domain/DomainMemory
+  DomainGamification:
+    path: Packages/Domain/DomainGamification
+  DomainSubscription:
+    path: Packages/Domain/DomainSubscription
+
+targets:
+  FanhB:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - App/Sources
+    resources:
+      - App/Resources
+    entitlements:
+      path: App/FanhB.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.fanhb.shared
+        aps-environment: development
+    info:
+      path: App/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: FanhB
+        CFBundleURLTypes:
+          - CFBundleURLSchemes:
+              - fanhb
+        NSCameraUsageDescription: "Scan your partner's QR invite code"
+        UILaunchScreen:
+          UIColorName: AccentColor
+        UIApplicationSupportsIndirectInputEvents: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIBackgroundModes:
+          - remote-notification
+          - fetch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fanhb.app
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        SWIFT_VERSION: "5.10"
+    dependencies:
+      - package: FHBFoundation
+        product: FHBFoundation
+      - package: FHBDesignSystem
+        product: FHBDesignSystem
+      - package: FHBNetworking
+        product: FHBNetworking
+      - package: FHBRealtime
+        product: FHBRealtime
+      - package: FHBPersistence
+        product: FHBPersistence
+      - package: FHBAppGroupStore
+        product: FHBAppGroupStore
+      - package: FHBPush
+        product: FHBPush
+      - package: FHBAnalytics
+        product: FHBAnalytics
+      - package: FHBDependencyContainer
+        product: FHBDependencyContainer
+      - package: DomainAuth
+        product: DomainAuth
+      - package: DomainCouple
+        product: DomainCouple
+      - package: DomainCanvas
+        product: DomainCanvas
+      - package: DomainNudge
+        product: DomainNudge
+      - package: DomainMemory
+        product: DomainMemory
+      - package: DomainGamification
+        product: DomainGamification
+      - package: DomainSubscription
+        product: DomainSubscription
+
+  FanhBWidget:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - WidgetExtension/Sources
+    resources:
+      - WidgetExtension/Resources
+    entitlements:
+      path: WidgetExtension/FanhBWidget.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.fanhb.shared
+    info:
+      path: WidgetExtension/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fanhb.app.widget
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        SWIFT_VERSION: "5.10"
+    dependencies:
+      - target: FanhB
+        embed: false
+      - package: FHBAppGroupStore
+        product: FHBAppGroupStore
+
+  FanhBNotificationServiceExt:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - NotificationServiceExt/Sources
+    entitlements:
+      path: NotificationServiceExt/FanhBNotificationService.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.fanhb.shared
+    info:
+      path: NotificationServiceExt/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.usernotifications.service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).NotificationService
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fanhb.app.notification-service
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        SWIFT_VERSION: "5.10"
+    dependencies:
+      - target: FanhB
+        embed: false
+      - package: FHBAppGroupStore
+        product: FHBAppGroupStore

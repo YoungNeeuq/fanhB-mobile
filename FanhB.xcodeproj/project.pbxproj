@@ -1,0 +1,842 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CB02F3367B636DFF5D2CB9C /* DomainGamification in Frameworks */ = {isa = PBXBuildFile; productRef = B504284856BCC63171DA643F /* DomainGamification */; };
+		175F9CA166E10840EE1ACBBB /* FHBDependencyContainer in Frameworks */ = {isa = PBXBuildFile; productRef = 92EB8DE52A41863F951DA277 /* FHBDependencyContainer */; };
+		49E32787B86AD883A1A60E5F /* DomainCanvas in Frameworks */ = {isa = PBXBuildFile; productRef = E6CE95255201D47C9C7F6634 /* DomainCanvas */; };
+		49F60FC46C5DE78F973BC863 /* FanhBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64145B8308A5DD3C575B86A5 /* FanhBApp.swift */; };
+		57B3126AC5DB95D889C45069 /* FHBRealtime in Frameworks */ = {isa = PBXBuildFile; productRef = 82111DAA06D20525A8AC1505 /* FHBRealtime */; };
+		58B3896B59EE6ECE008949A3 /* FHBAppGroupStore in Frameworks */ = {isa = PBXBuildFile; productRef = D660499C19F14DA827F6DEA0 /* FHBAppGroupStore */; };
+		64976818E60DE5D939C3638A /* DomainCouple in Frameworks */ = {isa = PBXBuildFile; productRef = 1BA798AFA4413E201929E551 /* DomainCouple */; };
+		6967C0E1997DBADAF7321650 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565DA3C769E9A49852DE6729 /* NotificationService.swift */; };
+		6D6D6380A192C9590FD68D74 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95475C308A0C0093E5DD3DA /* RootView.swift */; };
+		8253A8899DF289402870FB6C /* DomainSubscription in Frameworks */ = {isa = PBXBuildFile; productRef = 0FC61D7F7F27E5A6E172920D /* DomainSubscription */; };
+		8C07D940982D2BAE94D9067C /* FanhBWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB8299442C4585319E1B45B /* FanhBWidget.swift */; };
+		8EC6FF25F6048754C763F90D /* FHBAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2807FABB492CE03941A4D766 /* FHBAnalytics */; };
+		969464525985CDF9FA1002DC /* FHBNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 62BFCE720DA6649083FF7AF6 /* FHBNetworking */; };
+		A668743550EC07A1C5F0A601 /* FHBPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = E640D255D9E153396BC56ED0 /* FHBPersistence */; };
+		A8ADFC66C1A2BF51580AE17B /* FHBAppGroupStore in Frameworks */ = {isa = PBXBuildFile; productRef = 1B962CD5FC70F502ECDAB089 /* FHBAppGroupStore */; };
+		AC24C5C20171FC20FFCCDF81 /* FHBFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 3AA5C3362DBFB0CE2CC9BF0B /* FHBFoundation */; };
+		C9B75AFF1C2AA6A8E11422BB /* FHBAppGroupStore in Frameworks */ = {isa = PBXBuildFile; productRef = 7C81D3EB801A5EDF73DF29C5 /* FHBAppGroupStore */; };
+		C9DE77466933F73140FD1F2F /* DomainAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 277D8E06B4BC34977F5580C9 /* DomainAuth */; };
+		D4895FE3C92F6E00DE3D313C /* FanhBWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4A4F21D88E58A2390561C /* FanhBWidgetBundle.swift */; };
+		DCD0780BD93DDEC60D3FA8B4 /* FHBPush in Frameworks */ = {isa = PBXBuildFile; productRef = 41C06A52E26337FEE390FFD4 /* FHBPush */; };
+		E4CF94E30E2226FA46C9EFAC /* FHBDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 14B13C5380D068A7B117CFFA /* FHBDesignSystem */; };
+		E6D15139C3475F65D33E4598 /* DomainMemory in Frameworks */ = {isa = PBXBuildFile; productRef = 5A688C073C9A4E03FFAA5AE2 /* DomainMemory */; };
+		EE59D5D7C3D667D5F1AD2D30 /* DomainNudge in Frameworks */ = {isa = PBXBuildFile; productRef = 60F3EB66B77E6E308AAEFB4B /* DomainNudge */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDF9EB60DA7BB2C4179CE7D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D7C40EA0E04D8B4F2742F71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CA73D2DCF10FFB8A2B12644;
+			remoteInfo = FanhB;
+		};
+		C41A188DA74DA190B3AB04D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D7C40EA0E04D8B4F2742F71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CA73D2DCF10FFB8A2B12644;
+			remoteInfo = FanhB;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		021A48AFDF6832BEFB840D0D /* DomainCanvas */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DomainCanvas; path = Packages/Domain/DomainCanvas; sourceTree = SOURCE_ROOT; };
+		025A97D548170715AB31494C /* DomainMemory */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DomainMemory; path = Packages/Domain/DomainMemory; sourceTree = SOURCE_ROOT; };
+		0A43F13B7815612E447210EB /* DomainGamification */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DomainGamification; path = Packages/Domain/DomainGamification; sourceTree = SOURCE_ROOT; };
+		1AB8299442C4585319E1B45B /* FanhBWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanhBWidget.swift; sourceTree = "<group>"; };
+		21D76E798788627E512F302F /* DomainCouple */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DomainCouple; path = Packages/Domain/DomainCouple; sourceTree = SOURCE_ROOT; };
+		33718CFB638C51BF0776CD8A /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DesignSystem; path = Packages/Core/DesignSystem; sourceTree = SOURCE_ROOT; };
+		3AD1D71C68724941C52B0435 /* DomainNudge */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DomainNudge; path = Packages/Domain/DomainNudge; sourceTree = SOURCE_ROOT; };
+		443DC9B278CB8C6CDAFFAED2 /* Foundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Foundation; path = Packages/Core/Foundation; sourceTree = SOURCE_ROOT; };
+		52D906CBDE2823542153034A /* Analytics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Analytics; path = Packages/Core/Analytics; sourceTree = SOURCE_ROOT; };
+		565DA3C769E9A49852DE6729 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		64145B8308A5DD3C575B86A5 /* FanhBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanhBApp.swift; sourceTree = "<group>"; };
+		6989D49B4CA2065C9149AA80 /* FanhBWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FanhBWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		72C25D8C11DE3442EBDCFDF3 /* Push */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Push; path = Packages/Core/Push; sourceTree = SOURCE_ROOT; };
+		73FC62ED6B436527C85CD835 /* DomainSubscription */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DomainSubscription; path = Packages/Domain/DomainSubscription; sourceTree = SOURCE_ROOT; };
+		8EA17A75D8CE985357A65EA4 /* FanhB.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FanhB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A38858811C20CDD23CF9D8A /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Persistence; path = Packages/Core/Persistence; sourceTree = SOURCE_ROOT; };
+		9D3DED7DF1DC9EBE91E60A29 /* FanhBNotificationServiceExt.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FanhBNotificationServiceExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B4A4F21D88E58A2390561C /* FanhBWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanhBWidgetBundle.swift; sourceTree = "<group>"; };
+		A95475C308A0C0093E5DD3DA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		B113247E040FA5A7D75C8502 /* DomainAuth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DomainAuth; path = Packages/Domain/DomainAuth; sourceTree = SOURCE_ROOT; };
+		B4BBEA2C85AE44366AA5736E /* DependencyContainer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DependencyContainer; path = Packages/Core/DependencyContainer; sourceTree = SOURCE_ROOT; };
+		CF4B12546255858D0D09E9E6 /* fanhB-mobile */ = {isa = PBXFileReference; path = "fanhB-mobile"; sourceTree = "<group>"; };
+		D3C84A8E88E053E6F6669C57 /* Realtime */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Realtime; path = Packages/Core/Realtime; sourceTree = SOURCE_ROOT; };
+		D53D0518473E5A2E923D516F /* AppGroupStore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppGroupStore; path = Packages/Core/AppGroupStore; sourceTree = SOURCE_ROOT; };
+		FB208DF01E8794C1A93A1E80 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Networking; path = Packages/Core/Networking; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1EE635EB574E22C785BD5903 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8ADFC66C1A2BF51580AE17B /* FHBAppGroupStore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55541AA0FFC460D7B58D7120 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B3896B59EE6ECE008949A3 /* FHBAppGroupStore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC350A16F30948C5291B43A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC24C5C20171FC20FFCCDF81 /* FHBFoundation in Frameworks */,
+				E4CF94E30E2226FA46C9EFAC /* FHBDesignSystem in Frameworks */,
+				969464525985CDF9FA1002DC /* FHBNetworking in Frameworks */,
+				57B3126AC5DB95D889C45069 /* FHBRealtime in Frameworks */,
+				A668743550EC07A1C5F0A601 /* FHBPersistence in Frameworks */,
+				C9B75AFF1C2AA6A8E11422BB /* FHBAppGroupStore in Frameworks */,
+				DCD0780BD93DDEC60D3FA8B4 /* FHBPush in Frameworks */,
+				8EC6FF25F6048754C763F90D /* FHBAnalytics in Frameworks */,
+				175F9CA166E10840EE1ACBBB /* FHBDependencyContainer in Frameworks */,
+				C9DE77466933F73140FD1F2F /* DomainAuth in Frameworks */,
+				64976818E60DE5D939C3638A /* DomainCouple in Frameworks */,
+				49E32787B86AD883A1A60E5F /* DomainCanvas in Frameworks */,
+				EE59D5D7C3D667D5F1AD2D30 /* DomainNudge in Frameworks */,
+				E6D15139C3475F65D33E4598 /* DomainMemory in Frameworks */,
+				0CB02F3367B636DFF5D2CB9C /* DomainGamification in Frameworks */,
+				8253A8899DF289402870FB6C /* DomainSubscription in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		045C536F5225FFE3F9A075D9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				565DA3C769E9A49852DE6729 /* NotificationService.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		21F564C502C7ECC9E38DB61C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				52D906CBDE2823542153034A /* Analytics */,
+				D53D0518473E5A2E923D516F /* AppGroupStore */,
+				B4BBEA2C85AE44366AA5736E /* DependencyContainer */,
+				33718CFB638C51BF0776CD8A /* DesignSystem */,
+				B113247E040FA5A7D75C8502 /* DomainAuth */,
+				021A48AFDF6832BEFB840D0D /* DomainCanvas */,
+				21D76E798788627E512F302F /* DomainCouple */,
+				0A43F13B7815612E447210EB /* DomainGamification */,
+				025A97D548170715AB31494C /* DomainMemory */,
+				3AD1D71C68724941C52B0435 /* DomainNudge */,
+				73FC62ED6B436527C85CD835 /* DomainSubscription */,
+				443DC9B278CB8C6CDAFFAED2 /* Foundation */,
+				FB208DF01E8794C1A93A1E80 /* Networking */,
+				9A38858811C20CDD23CF9D8A /* Persistence */,
+				72C25D8C11DE3442EBDCFDF3 /* Push */,
+				D3C84A8E88E053E6F6669C57 /* Realtime */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		3BCCB8B98E5426003D052958 = {
+			isa = PBXGroup;
+			children = (
+				EA912406BBF2B704BD3C6D91 /* App */,
+				68659054FE7CD6B6FB0AA963 /* fanhB */,
+				F003393372AD15D2B8A7B8CD /* NotificationServiceExt */,
+				21F564C502C7ECC9E38DB61C /* Packages */,
+				4000801285666C1966F9537F /* WidgetExtension */,
+				CD2473A5A486F7377E99AB97 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4000801285666C1966F9537F /* WidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E863408561EDEBEAAD075503 /* Sources */,
+			);
+			path = WidgetExtension;
+			sourceTree = "<group>";
+		};
+		68659054FE7CD6B6FB0AA963 /* fanhB */ = {
+			isa = PBXGroup;
+			children = (
+				CF4B12546255858D0D09E9E6 /* fanhB-mobile */,
+			);
+			name = fanhB;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C3767496D50590118B8A3C60 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				64145B8308A5DD3C575B86A5 /* FanhBApp.swift */,
+				A95475C308A0C0093E5DD3DA /* RootView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CD2473A5A486F7377E99AB97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8EA17A75D8CE985357A65EA4 /* FanhB.app */,
+				9D3DED7DF1DC9EBE91E60A29 /* FanhBNotificationServiceExt.appex */,
+				6989D49B4CA2065C9149AA80 /* FanhBWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E863408561EDEBEAAD075503 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1AB8299442C4585319E1B45B /* FanhBWidget.swift */,
+				A2B4A4F21D88E58A2390561C /* FanhBWidgetBundle.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EA912406BBF2B704BD3C6D91 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C3767496D50590118B8A3C60 /* Sources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F003393372AD15D2B8A7B8CD /* NotificationServiceExt */ = {
+			isa = PBXGroup;
+			children = (
+				045C536F5225FFE3F9A075D9 /* Sources */,
+			);
+			path = NotificationServiceExt;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3CA73D2DCF10FFB8A2B12644 /* FanhB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE54872A7FBF83C2BE4A2C0 /* Build configuration list for PBXNativeTarget "FanhB" */;
+			buildPhases = (
+				D99E8CCA01C577ACE224AF83 /* Sources */,
+				DC350A16F30948C5291B43A6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FanhB;
+			packageProductDependencies = (
+				3AA5C3362DBFB0CE2CC9BF0B /* FHBFoundation */,
+				14B13C5380D068A7B117CFFA /* FHBDesignSystem */,
+				62BFCE720DA6649083FF7AF6 /* FHBNetworking */,
+				82111DAA06D20525A8AC1505 /* FHBRealtime */,
+				E640D255D9E153396BC56ED0 /* FHBPersistence */,
+				7C81D3EB801A5EDF73DF29C5 /* FHBAppGroupStore */,
+				41C06A52E26337FEE390FFD4 /* FHBPush */,
+				2807FABB492CE03941A4D766 /* FHBAnalytics */,
+				92EB8DE52A41863F951DA277 /* FHBDependencyContainer */,
+				277D8E06B4BC34977F5580C9 /* DomainAuth */,
+				1BA798AFA4413E201929E551 /* DomainCouple */,
+				E6CE95255201D47C9C7F6634 /* DomainCanvas */,
+				60F3EB66B77E6E308AAEFB4B /* DomainNudge */,
+				5A688C073C9A4E03FFAA5AE2 /* DomainMemory */,
+				B504284856BCC63171DA643F /* DomainGamification */,
+				0FC61D7F7F27E5A6E172920D /* DomainSubscription */,
+			);
+			productName = FanhB;
+			productReference = 8EA17A75D8CE985357A65EA4 /* FanhB.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5101A61D6E35634EB11CD879 /* FanhBNotificationServiceExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53F13DD36885FD741D14CF24 /* Build configuration list for PBXNativeTarget "FanhBNotificationServiceExt" */;
+			buildPhases = (
+				57A9F9D521052DA57B6EC147 /* Sources */,
+				1EE635EB574E22C785BD5903 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93B3AEB91B4E8AA688221063 /* PBXTargetDependency */,
+			);
+			name = FanhBNotificationServiceExt;
+			packageProductDependencies = (
+				1B962CD5FC70F502ECDAB089 /* FHBAppGroupStore */,
+			);
+			productName = FanhBNotificationServiceExt;
+			productReference = 9D3DED7DF1DC9EBE91E60A29 /* FanhBNotificationServiceExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B8D79F031BBC15A614575498 /* FanhBWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE9169F0837A68A2FC4A1C42 /* Build configuration list for PBXNativeTarget "FanhBWidget" */;
+			buildPhases = (
+				33F0EBAFFDC93958D608D673 /* Sources */,
+				55541AA0FFC460D7B58D7120 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				652CDAF12D3E20290C7D2A7A /* PBXTargetDependency */,
+			);
+			name = FanhBWidget;
+			packageProductDependencies = (
+				D660499C19F14DA827F6DEA0 /* FHBAppGroupStore */,
+			);
+			productName = FanhBWidget;
+			productReference = 6989D49B4CA2065C9149AA80 /* FanhBWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D7C40EA0E04D8B4F2742F71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3CA73D2DCF10FFB8A2B12644 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					5101A61D6E35634EB11CD879 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					B8D79F031BBC15A614575498 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 81E04BC66AE5A522FA22CE6D /* Build configuration list for PBXProject "FanhB" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 3BCCB8B98E5426003D052958;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B24F9CB82952EDAF0ED3A48E /* XCLocalSwiftPackageReference "Packages/Domain/DomainAuth" */,
+				86949C48F496E1CC0A7CDD35 /* XCLocalSwiftPackageReference "Packages/Domain/DomainCanvas" */,
+				A3270F43FE69633C320A0D43 /* XCLocalSwiftPackageReference "Packages/Domain/DomainCouple" */,
+				990597298689F72D1B6B65AB /* XCLocalSwiftPackageReference "Packages/Domain/DomainGamification" */,
+				C7ED8824C02F8AFE7FD7E1D0 /* XCLocalSwiftPackageReference "Packages/Domain/DomainMemory" */,
+				5E96F260A6E226C0CE8F8986 /* XCLocalSwiftPackageReference "Packages/Domain/DomainNudge" */,
+				CFC485C1E5AA46E53614D934 /* XCLocalSwiftPackageReference "Packages/Domain/DomainSubscription" */,
+				63F8069821248E4043D43D1E /* XCLocalSwiftPackageReference "Packages/Core/Analytics" */,
+				0B54D78F16783BF9EB6501C2 /* XCLocalSwiftPackageReference "Packages/Core/AppGroupStore" */,
+				D5D0598D3F24AF4AC9F6A319 /* XCLocalSwiftPackageReference "Packages/Core/DependencyContainer" */,
+				6152E5F9FA6E7C43B235D21F /* XCLocalSwiftPackageReference "Packages/Core/DesignSystem" */,
+				17B503D6735F1179788CF336 /* XCLocalSwiftPackageReference "Packages/Core/Foundation" */,
+				FDEC48EE43B7877A1E1DBD3A /* XCLocalSwiftPackageReference "Packages/Core/Networking" */,
+				384905ED5240DE5F77E18CBE /* XCLocalSwiftPackageReference "Packages/Core/Persistence" */,
+				E1DA9BB170AAAB21D1754D09 /* XCLocalSwiftPackageReference "Packages/Core/Push" */,
+				C7521EBFCCBA80401FD93A5D /* XCLocalSwiftPackageReference "Packages/Core/Realtime" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = CD2473A5A486F7377E99AB97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3CA73D2DCF10FFB8A2B12644 /* FanhB */,
+				5101A61D6E35634EB11CD879 /* FanhBNotificationServiceExt */,
+				B8D79F031BBC15A614575498 /* FanhBWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33F0EBAFFDC93958D608D673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C07D940982D2BAE94D9067C /* FanhBWidget.swift in Sources */,
+				D4895FE3C92F6E00DE3D313C /* FanhBWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A9F9D521052DA57B6EC147 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6967C0E1997DBADAF7321650 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D99E8CCA01C577ACE224AF83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F60FC46C5DE78F973BC863 /* FanhBApp.swift in Sources */,
+				6D6D6380A192C9590FD68D74 /* RootView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		652CDAF12D3E20290C7D2A7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CA73D2DCF10FFB8A2B12644 /* FanhB */;
+			targetProxy = BDF9EB60DA7BB2C4179CE7D8 /* PBXContainerItemProxy */;
+		};
+		93B3AEB91B4E8AA688221063 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CA73D2DCF10FFB8A2B12644 /* FanhB */;
+			targetProxy = C41A188DA74DA190B3AB04D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0CF9670B601C089712594FE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF4B12546255858D0D09E9E6 /* fanhB-mobile */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		280F4874D7A08D6F6804EA63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/FanhB.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = App/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanhb.app;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		785A271E0C2233466C7BAC77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/FanhB.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = App/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanhb.app;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		813A157ECE245556DF41F243 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension/FanhBWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanhb.app.widget;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		921211E84687E41E1E86CCE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF4B12546255858D0D09E9E6 /* fanhB-mobile */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+		A6C1949208367C374A1F85E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/FanhBNotificationService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fanhb.app.notification-service";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E475A3C020940A66F5257C64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension/FanhBWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanhb.app.widget;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EBC3ED08AA1C29FBEBC0BC27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExt/FanhBNotificationService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NotificationServiceExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fanhb.app.notification-service";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53F13DD36885FD741D14CF24 /* Build configuration list for PBXNativeTarget "FanhBNotificationServiceExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBC3ED08AA1C29FBEBC0BC27 /* Debug */,
+				A6C1949208367C374A1F85E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5CE54872A7FBF83C2BE4A2C0 /* Build configuration list for PBXNativeTarget "FanhB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				785A271E0C2233466C7BAC77 /* Debug */,
+				280F4874D7A08D6F6804EA63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		81E04BC66AE5A522FA22CE6D /* Build configuration list for PBXProject "FanhB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				921211E84687E41E1E86CCE0 /* Debug */,
+				0CF9670B601C089712594FE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DE9169F0837A68A2FC4A1C42 /* Build configuration list for PBXNativeTarget "FanhBWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				813A157ECE245556DF41F243 /* Debug */,
+				E475A3C020940A66F5257C64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		0B54D78F16783BF9EB6501C2 /* XCLocalSwiftPackageReference "Packages/Core/AppGroupStore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/AppGroupStore;
+		};
+		17B503D6735F1179788CF336 /* XCLocalSwiftPackageReference "Packages/Core/Foundation" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/Foundation;
+		};
+		384905ED5240DE5F77E18CBE /* XCLocalSwiftPackageReference "Packages/Core/Persistence" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/Persistence;
+		};
+		5E96F260A6E226C0CE8F8986 /* XCLocalSwiftPackageReference "Packages/Domain/DomainNudge" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain/DomainNudge;
+		};
+		6152E5F9FA6E7C43B235D21F /* XCLocalSwiftPackageReference "Packages/Core/DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/DesignSystem;
+		};
+		63F8069821248E4043D43D1E /* XCLocalSwiftPackageReference "Packages/Core/Analytics" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/Analytics;
+		};
+		86949C48F496E1CC0A7CDD35 /* XCLocalSwiftPackageReference "Packages/Domain/DomainCanvas" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain/DomainCanvas;
+		};
+		990597298689F72D1B6B65AB /* XCLocalSwiftPackageReference "Packages/Domain/DomainGamification" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain/DomainGamification;
+		};
+		A3270F43FE69633C320A0D43 /* XCLocalSwiftPackageReference "Packages/Domain/DomainCouple" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain/DomainCouple;
+		};
+		B24F9CB82952EDAF0ED3A48E /* XCLocalSwiftPackageReference "Packages/Domain/DomainAuth" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain/DomainAuth;
+		};
+		C7521EBFCCBA80401FD93A5D /* XCLocalSwiftPackageReference "Packages/Core/Realtime" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/Realtime;
+		};
+		C7ED8824C02F8AFE7FD7E1D0 /* XCLocalSwiftPackageReference "Packages/Domain/DomainMemory" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain/DomainMemory;
+		};
+		CFC485C1E5AA46E53614D934 /* XCLocalSwiftPackageReference "Packages/Domain/DomainSubscription" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain/DomainSubscription;
+		};
+		D5D0598D3F24AF4AC9F6A319 /* XCLocalSwiftPackageReference "Packages/Core/DependencyContainer" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/DependencyContainer;
+		};
+		E1DA9BB170AAAB21D1754D09 /* XCLocalSwiftPackageReference "Packages/Core/Push" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/Push;
+		};
+		FDEC48EE43B7877A1E1DBD3A /* XCLocalSwiftPackageReference "Packages/Core/Networking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core/Networking;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0FC61D7F7F27E5A6E172920D /* DomainSubscription */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainSubscription;
+		};
+		14B13C5380D068A7B117CFFA /* FHBDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBDesignSystem;
+		};
+		1B962CD5FC70F502ECDAB089 /* FHBAppGroupStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBAppGroupStore;
+		};
+		1BA798AFA4413E201929E551 /* DomainCouple */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainCouple;
+		};
+		277D8E06B4BC34977F5580C9 /* DomainAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainAuth;
+		};
+		2807FABB492CE03941A4D766 /* FHBAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBAnalytics;
+		};
+		3AA5C3362DBFB0CE2CC9BF0B /* FHBFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBFoundation;
+		};
+		41C06A52E26337FEE390FFD4 /* FHBPush */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBPush;
+		};
+		5A688C073C9A4E03FFAA5AE2 /* DomainMemory */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainMemory;
+		};
+		60F3EB66B77E6E308AAEFB4B /* DomainNudge */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainNudge;
+		};
+		62BFCE720DA6649083FF7AF6 /* FHBNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBNetworking;
+		};
+		7C81D3EB801A5EDF73DF29C5 /* FHBAppGroupStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBAppGroupStore;
+		};
+		82111DAA06D20525A8AC1505 /* FHBRealtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBRealtime;
+		};
+		92EB8DE52A41863F951DA277 /* FHBDependencyContainer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBDependencyContainer;
+		};
+		B504284856BCC63171DA643F /* DomainGamification */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainGamification;
+		};
+		D660499C19F14DA827F6DEA0 /* FHBAppGroupStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBAppGroupStore;
+		};
+		E640D255D9E153396BC56ED0 /* FHBPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FHBPersistence;
+		};
+		E6CE95255201D47C9C7F6634 /* DomainCanvas */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainCanvas;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2D7C40EA0E04D8B4F2742F71 /* Project object */;
+}
