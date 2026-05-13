@@ -15,23 +15,23 @@
 
 ## Auth (S-03, S-04) 🚨
 
-- [ ] **MO-P1-009** — Login/Sign Up landing screen
-- [ ] **MO-P1-010** — Sign in with Apple integration (mandatory)
-- [ ] **MO-P1-011** — Google Sign-In integration
-- [ ] **MO-P1-012** — Email + password form with validation
-- [ ] **MO-P1-013** — OTP entry screen with auto-fill from SMS / email
-- [ ] **MO-P1-014** — Resend cooldown timer
-- [ ] **MO-P1-015** — Token store (Keychain, `kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`)
-- [ ] **MO-P1-016** — Refresh-on-401 interceptor with single-flight actor
-- [ ] **MO-P1-017** — Logout flow + clear local state
-- [ ] **MO-P1-018** — Auth flow XCUITest 🧪
+- [x] **MO-P1-009** — Login/Sign Up landing screen
+- [x] **MO-P1-010** — Sign in with Apple integration (mandatory)
+- [x] **MO-P1-011** — Google Sign-In integration
+- [x] **MO-P1-012** — Email + password form with validation
+- [x] **MO-P1-013** — OTP entry screen with auto-fill from SMS / email
+- [x] **MO-P1-014** — Resend cooldown timer
+- [x] **MO-P1-015** — Token store (Keychain, `kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`)
+- [x] **MO-P1-016** — Refresh-on-401 interceptor with single-flight actor
+- [x] **MO-P1-017** — Logout flow + clear local state
+- [x] **MO-P1-018** — Auth flow XCUITest 🧪
 
 ## Profile (S-05)
 
-- [ ] **MO-P1-019** — Create profile form (name + color)
-- [ ] **MO-P1-020** — Avatar picker (camera + photo library + initials)
-- [ ] **MO-P1-021** — Avatar upload via presigned URL
-- [ ] **MO-P1-022** — Avatar finalize call
+- [x] **MO-P1-019** — Create profile form (name + color)
+- [x] **MO-P1-020** — Avatar picker (camera + photo library + initials)
+- [x] **MO-P1-021** — Avatar upload via presigned URL
+- [x] **MO-P1-022** — Avatar finalize call
 
 ## Couple Connection (S-06, S-07, S-08)
 

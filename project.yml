@@ -78,6 +78,11 @@ packages:
     url: https://github.com/hmlongco/Factory
     from: "2.3.0"
 
+  # MO-P1-011: Google Sign-In
+  GoogleSignIn:
+    url: https://github.com/google/GoogleSignIn-iOS
+    from: "7.0.0"
+
 targets:
   FanhB:
     type: application
@@ -100,7 +105,9 @@ targets:
         CFBundleURLTypes:
           - CFBundleURLSchemes:
               - fanhb
-        NSCameraUsageDescription: "Scan your partner's QR invite code"
+        NSCameraUsageDescription: "Scan your partner's QR invite code or take a profile photo"
+        NSPhotoLibraryUsageDescription: "Choose a photo for your avatar"
+        NSPhotoLibraryAddUsageDescription: "Save photos from FanhB"
         UILaunchScreen:
           UIColorName: AccentColor
         UIApplicationSupportsIndirectInputEvents: true
@@ -164,6 +171,24 @@ targets:
         product: FirebaseCore
       - package: Factory
         product: Factory
+      - package: GoogleSignIn
+        product: GoogleSignIn
+
+  FanhBUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - FanhBUITests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fanhb.app.uitests
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        SWIFT_VERSION: "5.10"
+    dependencies:
+      - target: FanhB
+        embed: false
 
   FanhBWidget:
     type: app-extension
