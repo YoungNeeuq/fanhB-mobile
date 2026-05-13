@@ -20,6 +20,19 @@ public struct AuthTokens: Sendable {
     public let accessToken: String
     public let refreshToken: String
     public let expiresAt: Date
+    public let sessionId: String?
+
+    public init(
+        accessToken: String,
+        refreshToken: String,
+        expiresAt: Date,
+        sessionId: String? = nil
+    ) {
+        self.accessToken = accessToken
+        self.refreshToken = refreshToken
+        self.expiresAt = expiresAt
+        self.sessionId = sessionId
+    }
 
     public var isExpired: Bool { expiresAt < .now }
 }
@@ -34,6 +47,7 @@ public enum AuthError: Error, Sendable {
 
 public protocol AuthRepository: Sendable {
     func signIn(email: String, password: String) async throws -> (User, AuthTokens)
+    func signUp(email: String, password: String, displayName: String) async throws -> (User, AuthTokens)
     func signInWithApple(identityToken: String) async throws -> (User, AuthTokens)
     func signInWithGoogle(idToken: String) async throws -> (User, AuthTokens)
     func signOut() async throws

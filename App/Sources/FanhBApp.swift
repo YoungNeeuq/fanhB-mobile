@@ -12,6 +12,7 @@ struct FanhBApp: App {
         configurePostHog()
         configureFirebase()
         configureAnalytics()
+        AppDependencies.configure(container: AppContainer.shared)
     }
 
     var body: some Scene {
