@@ -40,15 +40,32 @@
 
 ## Tooling
 
-- [ ] **MO-P0-025** — SwiftFormat + SwiftLint pre-commit hook
-- [ ] **MO-P0-026** — OpenAPI client codegen pipeline (consumes spec from BE) (blocked by BE-P0-040)
-- [ ] **MO-P0-027** — `APIClient` shape + interceptor pipeline implementation
-- [ ] **MO-P0-028** — `WSClient` shape + reconnect state machine implementation
-- [ ] **MO-P0-029** — Stub `APIClient` + `WSClient` for SwiftUI previews
+- [x] **MO-P0-025** — SwiftFormat + SwiftLint pre-commit hook ✅ done 2026-05-13
+  - `.swiftlint.yml`, `.swiftformat`, `.githooks/pre-commit`, `Makefile` (`make setup` installs hooks)
+- [ ] **MO-P0-026** — OpenAPI client codegen pipeline (consumes spec from BE) ⛔ blocked by BE-P0-040
+- [x] **MO-P0-027** — `APIClient` shape + interceptor pipeline implementation ✅ done 2026-05-13
+  - Retry pipeline (`RetryDecision`, `retry` hook on `RequestInterceptor`)
+  - `AuthTokenInterceptor` 401→refresh→retry via injected `tokenRefresher` closure
+  - `RetryInterceptor` for 5xx with exponential back-off
+  - `requestVoid` for 204 responses; `Endpoint.json<B>` convenience
+- [x] **MO-P0-028** — `WSClient` shape + reconnect state machine implementation ✅ done 2026-05-13
+  - `WSClientProtocol` (actor protocol)
+  - `AsyncStream<WSMessage>` + `AsyncStream<WSConnectionState>` on `WSClient`
+  - Fixed `WSMessage` payload encoding/decoding
+- [x] **MO-P0-029** — Stub `APIClient` + `WSClient` for SwiftUI previews ✅ done 2026-05-13
+  - `StubAPIClient` (actor, path-keyed response/error registry)
+  - `StubWSClient` (actor, `inject(message:)` helper)
 
 ## Smoke
 
-- [ ] **MO-P0-030** — Empty `RootView` calls `/_ops/health` and displays the result
-- [ ] **MO-P0-031** — Ship first TestFlight build
+- [x] **MO-P0-030** — `RootView` calls `/_ops/health` and displays the result ✅ done 2026-05-13
+  - Uses `APIClient` via `AppContainer`; renders with `FHBDesignSystem` tokens
+- [ ] **MO-P0-031** — Ship first TestFlight build 🚀 **ready to ship — manual steps remaining:**
+  1. Set `DEVELOPMENT_TEAM` in `project.yml` to your 10-char Apple team ID
+  2. Copy `Config/Secrets.xcconfig.template` → `Config/Secrets.xcconfig`, fill in DSN + PostHog key
+  3. Copy `App/Resources/GoogleService-Info.plist.template` → `GoogleService-Info.plist`, fill in from Firebase Console
+  4. Run `xcodegen generate`
+  5. Add GitHub repo secrets: `MATCH_GIT_URL`, `MATCH_PASSWORD`, `ASC_API_KEY_ID`, `ASC_API_KEY_ISSUER_ID`, `ASC_API_KEY_CONTENT`, `SENTRY_DSN`, `POSTHOG_API_KEY`, `TEAM_ID`, `ITC_TEAM_ID`
+  6. Push to `main` → `deliver.yml` uploads to TestFlight automatically
 
 **Exit:** TestFlight build installs on real device, shows health status from staging, CI gating works.

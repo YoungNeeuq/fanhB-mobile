@@ -1,0 +1,58 @@
+included:
+  - App
+  - Packages
+
+excluded:
+  - .build
+  - DerivedData
+  - Packages/Core/DesignSystem/Sources/FHBDesignSystem  # generated token file exceptions handled below
+
+opt_in_rules:
+  - force_unwrapping
+  - empty_count
+  - closure_spacing
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - private_outlet
+  - contains_over_filter_count
+  - flatmap_over_map_reduce
+  - joined_default_parameter
+
+disabled_rules:
+  - trailing_whitespace  # SwiftFormat owns whitespace
+
+line_length:
+  warning: 130
+  error: 160
+  ignores_comments: true
+  ignores_urls: true
+
+type_body_length:
+  warning: 300   # SwiftUI views and token enums can be long
+  error: 500
+
+file_length:
+  warning: 500
+  error: 1000
+
+function_body_length:
+  warning: 60
+  error: 100
+
+cyclomatic_complexity:
+  warning: 10
+  error: 20
+
+identifier_name:
+  min_length:
+    warning: 2
+    error: 1
+  excluded:
+    - id
+    - x
+    - y
+    - r
+    - g
+    - b
+
+reporter: "xcode"

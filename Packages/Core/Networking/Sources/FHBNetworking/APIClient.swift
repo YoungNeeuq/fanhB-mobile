@@ -1,9 +1,14 @@
 import Foundation
 import FHBFoundation
 
+// MARK: - Protocol
+
 public protocol APIClientProtocol: Sendable {
     func request<T: Decodable & Sendable>(_ endpoint: Endpoint) async throws -> T
+    func requestVoid(_ endpoint: Endpoint) async throws
 }
+
+// MARK: - APIClient
 
 public actor APIClient: APIClientProtocol {
     private let session: URLSession
@@ -11,6 +16,7 @@ public actor APIClient: APIClientProtocol {
     private let interceptors: [any RequestInterceptor]
     private let baseURL: URL
     private let logger = FHBLogger(category: "APIClient")
+    private let maxAttempts = 5
 
     public init(baseURL: URL, interceptors: [any RequestInterceptor] = []) {
         self.baseURL = baseURL
@@ -21,23 +27,66 @@ public actor APIClient: APIClientProtocol {
             let container = try decoder.singleValueContainer()
             let string = try container.decode(String.self)
             guard let date = ISO8601DateFormatter.fanhb.date(from: string) else {
-                throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid ISO8601 date: \(string)")
+                throw DecodingError.dataCorruptedError(
+                    in: container,
+                    debugDescription: "Invalid ISO8601 date: \(string)"
+                )
             }
             return date
         }
     }
 
     public func request<T: Decodable & Sendable>(_ endpoint: Endpoint) async throws -> T {
-        var urlRequest = try endpoint.urlRequest(baseURL: baseURL)
-        for interceptor in interceptors {
-            urlRequest = try await interceptor.adapt(urlRequest)
+        try await execute(endpoint: endpoint) { [decoder] data, _ in
+            try decoder.decode(T.self, from: data)
         }
-        let (data, response) = try await session.data(for: urlRequest)
-        guard let http = response as? HTTPURLResponse else {
-            throw APIError.invalidResponse
+    }
+
+    public func requestVoid(_ endpoint: Endpoint) async throws {
+        try await execute(endpoint: endpoint) { _, _ in }
+    }
+
+    // MARK: - Private
+
+    private func execute<T>(
+        endpoint: Endpoint,
+        transform: (Data, HTTPURLResponse) throws -> T
+    ) async throws -> T {
+        var attempt = 0
+        while true {
+            var urlRequest = try endpoint.urlRequest(baseURL: baseURL)
+            for interceptor in interceptors {
+                urlRequest = try await interceptor.adapt(urlRequest)
+            }
+            do {
+                let (data, response) = try await session.data(for: urlRequest)
+                guard let http = response as? HTTPURLResponse else {
+                    throw APIError.invalidResponse
+                }
+                try validateStatusCode(http, data: data)
+                return try transform(data, http)
+            } catch let error as APIError {
+                attempt += 1
+                guard attempt < maxAttempts,
+                      await shouldRetry(request: urlRequest, error: error, attempt: attempt) else {
+                    throw error
+                }
+                logger.info("Retrying \(endpoint.path) (attempt \(attempt))")
+            }
         }
-        try validateStatusCode(http, data: data)
-        return try decoder.decode(T.self, from: data)
+    }
+
+    private func shouldRetry(request: URLRequest, error: APIError, attempt: Int) async -> Bool {
+        await withTaskGroup(of: Bool.self) { group in
+            for interceptor in interceptors {
+                group.addTask {
+                    await interceptor.retry(request, dueTo: error, attempt: attempt) == .retry
+                }
+            }
+            var anyRetry = false
+            for await result in group { anyRetry = anyRetry || result }
+            return anyRetry
+        }
     }
 
     private func validateStatusCode(_ response: HTTPURLResponse, data: Data) throws {
@@ -46,10 +95,12 @@ public actor APIClient: APIClientProtocol {
         case 401: throw APIError.unauthorized
         case 404: throw APIError.notFound
         case 422: throw APIError.unprocessableEntity(data)
-        default: throw APIError.serverError(response.statusCode, data)
+        default:  throw APIError.serverError(response.statusCode, data)
         }
     }
 }
+
+// MARK: - APIError
 
 public enum APIError: Error, Sendable {
     case invalidResponse
