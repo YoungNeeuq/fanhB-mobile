@@ -66,18 +66,6 @@
 - [ ] **MO-P2-042** — Widget Settings screen (S-31) UI
 - [ ] **MO-P2-043** — Widget config (shape + accent + show-name) writes to App Group
 
-## Subscriptions & Paywall
-
-- [ ] **MO-P2-044** — StoreKit 2 product fetch
-- [ ] **MO-P2-045** — Paywall screen design implementation
-- [ ] **MO-P2-046** — Purchase flow + receipt to backend
-- [ ] **MO-P2-047** — Server verify + entitlement refresh
-- [ ] **MO-P2-048** — Restore purchases button + flow
-- [ ] **MO-P2-049** — Premium-gated UI lock icons + upsell sheets
-- [ ] **MO-P2-050** — Apply gate to scheduled-nudge UI
-- [ ] **MO-P2-051** — Apply gate to template-export UI
-- [ ] **MO-P2-052** — Subscription tests with StoreKitTest 🧪
-
 ## Nudge — Scheduling
 
 - [ ] **MO-P2-053** — Scheduled nudge date/time picker
@@ -93,8 +81,8 @@
 
 ## Account
 
-- [ ] **MO-P2-060** — Account & subscription screen (S-34)
+- [ ] **MO-P2-060** — Account screen (S-34)
 - [ ] **MO-P2-061** — Disconnect flow with 7-day cool-off explanation
 - [ ] **MO-P2-062** — Cancel disconnect during cool-off
 
-**Exit:** Live Activity reliably appears on Dynamic Island; sandbox purchase + restore works; streak detail matches backend.
+**Exit:** Live Activity reliably appears on Dynamic Island; streak detail matches backend.

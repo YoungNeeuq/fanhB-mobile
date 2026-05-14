@@ -21,7 +21,7 @@
 - [x] **MO-P0-012** — Create `Core/Push` package
 - [x] **MO-P0-013** — Create `Core/Analytics` package (event sink interface)
 - [x] **MO-P0-014** — Create `Core/DependencyContainer` package (Factory bindings)
-- [x] **MO-P0-015** — Create `Domain*` packages skeleton (Auth, Couple, Canvas, Nudge, Memory, Gamification, Subscription)
+- [x] **MO-P0-015** — Create `Domain*` packages skeleton (Auth, Couple, Canvas, Nudge, Memory, Gamification)
 
 ## Signing & CI
 

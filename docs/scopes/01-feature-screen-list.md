@@ -18,7 +18,6 @@
 | Push & Live Activity | `UserNotifications` + `ActivityKit` + `WidgetKit` | Native frameworks only |
 | Auth | **Firebase Auth iOS SDK** (Apple/Google/email) → exchanged for backend JWT | Matches backend |
 | Analytics | **PostHog** or **Mixpanel** (cohort, funnel) | Avoid Firebase Analytics duplication |
-| IAP | **StoreKit 2** | Modern API, server validation friendly |
 | Media | `AVFoundation` for reel export, `PDFKit` for client-side preview only | Heavy generation stays on server |
 | DI | **Factory** (Swift Package) | Lightweight, compile-time safe |
 | Modularization | **Swift Package Manager** local packages (Tuist optional) | One feature = one package |
@@ -72,9 +71,8 @@
 | 29 | S-28 | Milestones & Achievements | Badges list |
 | 30 | S-29 | Edit Relationship | Nicknames, anniversary, photo |
 | 31 | S-31 | Widget Settings | Configure widgets |
-| 32 | S-34 | Account & Subscription | Plan + billing |
+| 32 | S-34 | Account | Account settings |
 | 33 | New | Streak Detail | Visual evolution flame → sun |
-| 34 | New | Paywall | Premium upsell screen |
 
 **Phase 2 platform surfaces:** Live Activity, Lock Screen widget, Large (4×4) widget.
 
@@ -145,7 +143,6 @@
 | Live Activity | Dynamic Island while partner draws |
 | Drawing playback | Stroke-by-stroke time lapse |
 | Streak + milestones | Visual evolution, freeze tokens |
-| Premium subscription | StoreKit 2 + paywall + restore |
 | PNG export | Share sheet |
 | Reactions | Hand-drawn emoji |
 | Themed albums | Manual tags |
@@ -187,7 +184,7 @@ Root Tab Bar (post-auth)
 └── Profile (S-26)        ── Personal (S-27) / Milestones (S-28) / Settings (S-30...)
 ```
 
-Modal flows: Nudge send/receive, Drawing tool picker, Color palette, Paywall, Disconnect.
+Modal flows: Nudge send/receive, Drawing tool picker, Color palette, Disconnect.
 
 ---
 
@@ -219,7 +216,6 @@ Modal flows: Nudge send/receive, Drawing tool picker, Color palette, Paywall, Di
 | Photos add-only (export to camera roll) | P2 | |
 | Background Modes: Remote notifications, Background fetch | P1 | |
 | ActivityKit (Live Activity) | P2 | |
-| StoreKit | P2 | |
 | Apple Pencil / pressure | P3 | |
 | App Clips (optional, invite preview) | P4 | |
 | WatchKit extension | P4 | |

@@ -20,7 +20,7 @@
 ├──────────────────────────────────────────────────────────┤
 │                       Data Layer                          │
 │   APIClient · WSClient · CoreDataStore · KeychainStore    │
-│   FirebaseAuth · StoreKitClient · PushService · AppGroup  │
+│   FirebaseAuth · PushService · AppGroup                   │
 ├──────────────────────────────────────────────────────────┤
 │                      Platform Layer                       │
 │   URLSession · ActivityKit · WidgetKit · CHHapticEngine   │
@@ -57,8 +57,7 @@ FanhB.xcworkspace
     │   ├── DomainCanvas        (Stroke, Drawing, Tool, Color)
     │   ├── DomainNudge
     │   ├── DomainMemory
-    │   ├── DomainGamification
-    │   └── DomainSubscription
+    │   └── DomainGamification
     └── Features/
         ├── FeatureAuth         (screens S-03/04 + flow)
         ├── FeatureOnboarding   (S-01/02/09)
@@ -69,7 +68,6 @@ FanhB.xcworkspace
         ├── FeatureProfile      (S-27/28)
         ├── FeatureChallenges   (P3)
         ├── FeatureSettings     (S-30–S-35)
-        ├── FeatureSubscription (Paywall + StoreKit)
         └── FeatureWidgetConfig (drives Widget Extension UI)
 ```
 
@@ -170,7 +168,7 @@ WebSocket: separate `WSClient` actor with state machine `disconnected → connec
 
 | Store | Use |
 |---|---|
-| **Keychain** | Access + refresh JWT, Firebase id token cache, IAP receipt (optional) |
+| **Keychain** | Access + refresh JWT, Firebase id token cache |
 | **Core Data** (App Group) | `Drawing` (cached), `Stroke` (journey), `Nudge` (outbox), `DraftDrawing`, `LocalProfile`, `LocalCouple`, `Tag` |
 | **UserDefaults** (App Group) | Couple-level cached counters (days together, streak), widget preferences |
 | **R2 (remote)** | Full drawing PNGs + preview thumbs; only signed URLs reach the device |
@@ -230,7 +228,7 @@ In tests, `Container.shared.apiClient.register { APIClient.mock }`.
 - Network errors mapped from RFC7807 problem+json into typed cases.
 - All thrown errors at the View layer route through a `ErrorPresenter` that decides toast vs. modal vs. silent log.
 - Sentry captures all unhandled errors, scrubbed for PII.
-- PostHog records funnel events: `onboarding_complete`, `couple_connected`, `first_drawing_sent`, `streak_reached_7`, `paywall_viewed`, `subscription_started`.
+- PostHog records funnel events: `onboarding_complete`, `couple_connected`, `first_drawing_sent`, `streak_reached_7`.
 - Crash-free session target: ≥ 99.5%.
 
 ---
@@ -242,7 +240,6 @@ In tests, `Container.shared.apiClient.register { APIClient.mock }`.
 - Jailbreak detection deliberately **not** implemented (false-positive risk > value).
 - Face ID / Touch ID gate via `LAContext` with PIN fallback.
 - "Hide drawing in preview" honored by NotificationServiceExtension and Live Activity content.
-- IAP receipts verified by **backend only** — client never trusts local validation.
 - App Transport Security strict; no cleartext exceptions.
 
 ---
@@ -267,7 +264,7 @@ In tests, `Container.shared.apiClient.register { APIClient.mock }`.
 | ViewModel | XCTest with mock repos | 80%+ |
 | Canvas math (smoothing, encode/decode) | XCTest with golden fixtures | 100% on the codec |
 | SwiftUI views | ViewInspector snapshots | smoke level only |
-| End-to-end golden paths | XCUITest + a stubbed `APIClient` | onboarding, send drawing, receive nudge, paywall |
+| End-to-end golden paths | XCUITest + a stubbed `APIClient` | onboarding, send drawing, receive nudge |
 | Live integration | Hand-run against staging before each TestFlight | release gate |
 
 ---
