@@ -189,15 +189,6 @@ Legend: 🆕 new module · 🔁 iteration · 🧪 testable golden path · 🚨 s
 | 2.20 | Lock screen circular widget — thumbnail | S |
 | 2.21 | Widget Settings screen (S-31) | M |
 
-### Subscriptions & Paywall (S-34)
-| # | Task | Size |
-|---|---|---|
-| 2.22 | StoreKit 2 product fetch + purchase | M |
-| 2.23 | Paywall screen | M |
-| 2.24 | Server receipt verify call | S |
-| 2.25 | Restore purchases | S |
-| 2.26 | Premium entitlement gating UI (lock icons, upsell sheets) | M |
-
 ### Nudge — scheduling
 | # | Task | Size |
 |---|---|---|
@@ -212,12 +203,11 @@ Legend: 🆕 new module · 🔁 iteration · 🧪 testable golden path · 🚨 s
 ### Account
 | # | Task | Size |
 |---|---|---|
-| 2.30 | Account + subscription screen | M |
+| 2.30 | Account screen | M |
 | 2.31 | Disconnect flow with cool-off explanation | M |
 
 **Phase 2 exit criteria:**
 - Live Activity visible on Dynamic Island when partner draws.
-- Premium gate works for a sandbox purchase, restore works on a fresh install.
 - Streak rendering matches backend state across DST boundary tests.
 
 ---
@@ -331,6 +321,6 @@ Everything else (theming polish, settings depth, telemetry, tests) can run in pa
 ## Headcount Notes
 
 - **MVP (P1):** 2 iOS engineers (1 senior on canvas/realtime; 1 mid on flows + widgets) + designer (part-time).
-- **P2:** add 1 engineer to deliver Live Activity, IAP, and co-draw in parallel.
+- **P2:** add 1 engineer to deliver Live Activity and co-draw in parallel.
 - **P3:** keep 3 iOS engineers; add a brush/Metal specialist for one quarter.
 - **P4:** add Watch + iPad capable engineer; localization vendor.
